@@ -1,18 +1,22 @@
 //闭包概念与测试
-//匿名函数 + 被匿名函数引用的局部变量，外层函数内层匿名函数
+//匿名函数 + 被匿名函数引用的局部变量构成的应用上下文，外层函数内层匿名函数
 package main
 
 import "fmt"
 
 func main() {
-  fmt.Println(OuterFunc())
+  slice := []int{1, 2, 3, 4}
+  fmt.Println(OuterFunc()(slice...))  //此处的切片作为可变参数集合，需要使用省略号
 }
 
-func OuterFunc(x int) func(int) int {
+func MyClosure() func(...int) int {
   sum := 0
-  fun := func(x) int {
-    return sum += x
-  }()
+  fun := func(slice ...int) int {  //匿名内部函数接收可变参数
+    for _, v := range slice {
+      sum += v
+    }
+    return sum
+  }
   return fun
 }
 
