@@ -1,0 +1,18 @@
+//闭包概念与测试
+//匿名函数 + 被匿名函数引用的局部变量，外层函数内层匿名函数
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println(OuterFunc())
+}
+
+func OuterFunc(x int) func(int) int {
+  sum := 0
+  fun := func(x) int {
+    return sum += x
+  }()
+  return fun
+}
+
