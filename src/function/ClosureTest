@@ -7,6 +7,11 @@ import "fmt"
 func main() {
   slice := []int{1, 2, 3, 4}
   fmt.Println(OuterFunc()(slice...))  //此处的切片作为可变参数集合，需要使用省略号
+  
+  arr := [...]int{1, 23, 3, 4}
+  fmt.Println(OuterFunc()(arr[:]...))  //如果参数集合是数组，需要将数组转为切片，然后将切片作为参数传递，但仍然需要使用省略号
+  
+  fmt.Println(OuterFunc()(1, 2, 3, 4, 5))  //传入零散值 
 }
 
 func MyClosure() func(...int) int {
