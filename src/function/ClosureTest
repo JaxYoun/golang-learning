@@ -29,6 +29,7 @@ func main() {
   
 }
 
+//1.常规写法，稍显嗦，但可读性强
 func MyClosure() func(...int) int {
   sum := 0
   fun := func(slice ...int) int {  //匿名内部函数接收可变参数
@@ -39,4 +40,41 @@ func MyClosure() func(...int) int {
   }
   return fun
 }
+
+//2.简练写法
+func main() {
+  slice := []int{2, 3, 4}
+  
+  //a.返回内层函数，最后独立调用
+  reFun := func() func(...int) int {
+    sum := 0
+    return func(arr ...int) int {
+      for _, v := range arr{
+        sum += v
+      }
+      retun sum
+    }
+  }()  //即时执行外层匿名函数，返回内层函数待后续调用
+  fmt.Println(reFun(1, 2, 3, 4))  //可变参数
+  fmt.Println(reFun(slice...))  //切片作为可变参数
+  
+  //b.返回内层函数调用执行的最终的结果
+  result := func() func(...int) int {
+    sum := 0
+    return func(arr ...int) int {
+      for _, v := range arr{
+        sum += v
+      }
+      retun sum
+    }
+  }()(slice...)  //两次即时执行
+  fmt.Println("%T---%v", result, result)  //in---10
+}
+
+
+
+
+
+
+
 
