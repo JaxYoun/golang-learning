@@ -15,14 +15,14 @@ var map1 = make(map[string]int64)
 var map2 map[string]int64 = make(map[string]int64)
 
 func main() {
-  //4.map对象初始化
-  map0 = make(map[string]string
-  //写元素
-  map0["name"] = "yang"
-  fmt.Println(map0["name"])
-  
-  //4.遍历map对象
-  for k, v := range map0{
-    fmt.Println(k, v)
-  }
+	//4.map对象初始化
+	map0 = make(map[string]string)
+	//写元素
+	map0["name"] = "yang"
+	fmt.Println(map0["name"])
+
+	//4.遍历map对象
+	for k, v := range map0 {
+		fmt.Println(k, v)
+	}
 }

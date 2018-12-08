@@ -8,17 +8,17 @@ package main
 
 import "fmt"
 
-conts _A int = 12  //显式声明常量的类型，常量未使用编译可以通过
-const _B = 13  //推断常量类型
+const _A int = 12 //显式声明常量的类型，常量未使用编译可以通过
+const _B = 13     //推断常量类型
 
-const(
-  PI = 3.14
-  Nike = "nk"
-  ali  //如果未显式赋值，会将沿用上一条记录的值
-  num = iota  //这个num接收的iota值是编译器在编译时根据常量组元素个数推算出来的
+const (
+	PI   = 3.14
+	Nike = "nk"
+	ali         //如果未显式赋值，会将沿用上一条记录的值
+	num  = iota //这个num接收的iota值是编译器在编译时根据常量组元素个数推算出来的
 )
 
 func main() {
-  fmt.Println(_B)
-  fmt.Println(num)  //3
+	fmt.Println(_B)
+	fmt.Println(num) //3
 }
