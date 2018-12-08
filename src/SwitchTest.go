@@ -10,25 +10,25 @@ package main
 import "fmt"
 
 func main() {
-  a := 11
-  
-  //1.switch后跟变量，此时case后的值类型必须同这个变量类型相同
-  switch a {
-    case 10:
-      fmt.Println("ten")  //隐式阻断，会被fallthrough关键字破坏
-    case 11:
-      fmt.Println("eleven")
-      break  //显式阻断，不会被fallthrough关键字破坏
-    default:
-      fmt.Println("none matchs!")
-  }
-  
-  //2.switch后不跟变量，此时case后只能跟bool表达式
-  switch {
-    case a > 10:
-      
-    case a < 100:
-      
-  }
-  
+	a := 11
+
+	//1.switch后跟变量，此时case后的值类型必须同这个变量类型相同
+	switch a {
+	case 10:
+		fmt.Println("ten") //隐式阻断，会被fallthrough关键字破坏
+	case 11:
+		fmt.Println("eleven")
+		break //显式阻断，不会被fallthrough关键字破坏
+	default:
+		fmt.Println("none matchs!")
+	}
+
+	//2.switch后不跟变量，此时case后只能跟bool表达式
+	switch {
+	case a > 10:
+
+	case a < 100:
+
+	}
+
 }
