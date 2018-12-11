@@ -1,4 +1,4 @@
-//Glang中的空接口类似与Java中的Object类，可以作为任何类的抽象接口，带来更多的灵活性
+//Glang中的空接口类似于Java中的Object类，可以作为任何类的抽象接口，带来更大的灵活性
 package main
 
 import "fmt"
