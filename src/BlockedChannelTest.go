@@ -45,7 +45,7 @@ func kk() {
 
 func main() {
 
-	//非缓冲channel会引发消费者和生产者的阻塞，知道满足条件再继续执行，利用此机制能很好的实现线程间的数据同步
+	//非缓冲channel会引发消费者和生产者的阻塞，两种协程直到满足各自的条件再继续执行，利用此机制能很好的实现协程间的数据同步
 	go Read(cha)
 	go Write(cha)
 	time.Sleep(time.Second)
